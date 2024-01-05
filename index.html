@@ -1,100 +1,35 @@
-<!doctype html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>track editor on the web!</title>
-    <style>
-      body, html{
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        min-height: 100vh;
-        background-color: #111;
-        font-family: Arial, Helvetica, sans-serif;
-        color: white;
-        image-rendering: pixelated;
-        scrollbar-width: none;
-      }
-      ::-webkit-scrollbar {
-        display: none;
-      }
-      #container {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      canvas {
-        width: 100vw;
-        height: 100vh;
-      }
-      #controls {
-        margin-left: 1em;
-        display: flex;
-        align-items: center;
-      }
-      #controller, #dmca {
-        padding-left: 4em;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="controls">
-      <div id="keyboard">
-        <h2>Keyboard Controls</h2>
-        <ul>
-          <li>Movement: Arrow Keys</li>
-          <li>A: X</li>
-          <li>B: C</li>
-          <li>L: Q</li>
-          <li>Z: Space</li>
-          <li>Start: Enter</li>
-          <li>C-stick: WASD</li>
-        </ul>
-      </div>
-      <div id="controller">
-        <h2>!</h2>
-        <h2>!</h2>
-        <h2>.</h2>
-        <h2>.</h2>
-      </div>
-    </div>
-    <div id="container">
-      <canvas class="emscripten" id="canvas"></canvas>
-    </div>
-    <script type='text/javascript'>
-      var Module = {
-        preRun: [],
-        postRun: [],
-        print: (function() {
-          return function(text) {
-            if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
-            console.log(text);
-          };
-        })(),
-        printErr: function(text) {
-          if (arguments.length > 1)
-            text = Array.prototype.slice.call(arguments).join(' ');
-          console.error(text);
-        },
-        canvas: (function() {
-          var canvas = document.getElementById('canvas');
-          canvas.width = window.innerWidth; // Todo: how to do this from c++
-          canvas.height = window.innerHeight;
-          canvas.addEventListener("webglcontextlost", function(e) {
-            alert('WebGL context lost. You will need to reload the page.');
-            e.preventDefault();
-          }, false);
-          return canvas;
-        })(),
-        setStatus: function(text) {
-        }
-      };
-    </script>
-    <script async type="text/javascript" src="hilca-track-editor.jar"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java App Launcher</title>
+</head>
+<body>
+
+    <h1>Welcome to My Java App</h1>
+    
+    <p>Click the button below to launch the Java application:</p>
+
+    <button onclick="launchJavaApp()">Launch Java App</button>
+
     <script>
+        function launchJavaApp() {
+            try {
+                // Create an <embed> element to launch the .jar file
+                var embed = document.createElement("embed");
+                embed.setAttribute("type", "application/x-java-applet");
+                embed.setAttribute("width", "0");
+                embed.setAttribute("height", "0");
+                embed.setAttribute("code", "YourJavaApp.class"); // replace with your Java class file
+                embed.setAttribute("archive", "your-app.jar"); // replace with your .jar file
+                embed.setAttribute("java_code", "YourJavaApp"); // replace with your Java class
+                document.body.appendChild(embed);
+            } catch (error) {
+                console.error("Error launching Java app:", error);
+            }
+        }
     </script>
-  </body>
+
+</body>
 </html>
