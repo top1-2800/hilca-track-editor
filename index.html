@@ -7,11 +7,11 @@
 </head>
 <body>
 
-    <h1>Welcome to My Java App</h1>
+    <h1>Welcome hilca track editor</h1>
     
-    <p>Click the button below to launch the Java application:</p>
+    <p>Click the button below to launch the editor:</p>
 
-    <button onclick="launchJavaApp()">Launch Java App</button>
+    <button onclick="launchJavaApp()">Launch track editor</button>
 
     <script>
         function launchJavaApp() {
@@ -22,7 +22,7 @@
                 embed.setAttribute("width", "0");
                 embed.setAttribute("height", "0");
                 embed.setAttribute("code", "YourJavaApp.class"); // replace with your Java class file
-                embed.setAttribute("archive", "your-app.jar"); // replace with your .jar file
+                embed.setAttribute("archive", "hilca-track-editor.jar"); // replace with your .jar file
                 embed.setAttribute("java_code", "YourJavaApp"); // replace with your Java class
                 document.body.appendChild(embed);
             } catch (error) {
