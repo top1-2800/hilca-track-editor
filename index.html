@@ -3,33 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java App Launcher</title>
 </head>
 <body>
 
-    <h1>Welcome hilca track editor</h1>
+    <h1>Welcome to hilca track editor</h1>
     
-    <p>Click the button below to launch the editor:</p>
+    <p>Follow the instructions below to run the editor:</p>
 
-    <button onclick="launchJavaApp()">Launch track editor</button>
-
-    <script>
-        function launchJavaApp() {
-            try {
-                // Create an <embed> element to launch the .jar file
-                var embed = document.createElement("embed");
-                embed.setAttribute("type", "application/x-java-applet");
-                embed.setAttribute("width", "0");
-                embed.setAttribute("height", "0");
-                embed.setAttribute("code", "YourJavaApp.class"); // replace with your Java class file
-                embed.setAttribute("archive", "hilca-track-editor.jar"); // replace with your .jar file
-                embed.setAttribute("java_code", "YourJavaApp"); // replace with your Java class
-                document.body.appendChild(embed);
-            } catch (error) {
-                console.error("Error launching Java app:", error);
-            }
-        }
-    </script>
+    <ol>
+        <li>Download the JAR file: <a href="hilca-track-editor.jar" download>Download Java App</a></li>
+        <li>Open a terminal or command prompt.</li>
+        <li>Navigate to the directory where you downloaded the JAR file.</li>
+        <li>Run the editor using the command: <code>java -jar hilca-track-editor.jar</code></li>
+    </ol>
 
 </body>
 </html>
